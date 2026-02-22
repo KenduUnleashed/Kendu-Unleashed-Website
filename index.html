@@ -8,35 +8,9 @@
   <!-- Styles -->
   <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Smooth scrolling + single-page helpers -->
+  <!-- Smooth scrolling -->
   <style>
     html { scroll-behavior: smooth; }
-
-    /* Make sections banner-height, not full-screen */
-    section.page {
-      position: relative;
-      min-height: clamp(380px, 48vh, 520px);
-      display: flex;
-      align-items: center;
-    }
-    .section-inner { position: relative; z-index: 1; width: 100%; }
-    .section-inner.container { padding-top: 4rem; padding-bottom: 3rem; }
-    .navlinks a.active { color: var(--accent); text-shadow: 0 0 6px rgba(255,92,0,.6); }
-
-    /* Mobile nav toggle (guard if not present in styles.css) */
-    @media (max-width: 900px){
-      .navtoggle{ display:block; }
-      .navlinks{
-        position:fixed; top:64px; left:0; right:0; display:none; flex-direction:column; gap:.25rem;
-        background:rgba(12,12,12,.96); backdrop-filter:saturate(1.1) blur(8px);
-        padding:1rem 1.25rem; border-bottom:1px solid rgba(255,255,255,.08); z-index:999;
-      }
-      .navlinks.open{ display:flex; }
-      .hero, main{ padding-top:64px; }
-    }
-
-    .brand-card p { margin-bottom: 1rem; }
-    hr.section { margin: 2rem 0; border: 0; border-top: 1px solid rgba(255,255,255,.2); }
   </style>
 
   <!-- Favicons -->
@@ -90,13 +64,12 @@
       <img src="/assets/images/surf-dog.jpg" alt="" class="edge-img">
     </div>
     <div class="section-inner container">
-      <div class="card reveal" style="text-align:center">
+      <div class="card reveal">
         <h1 class="title-xl">Welcome to the First Wave.</h1>
 	<h2 class="title-l">This is Kendu Unleashed.</h2>
         <p>We are not just a brand — We are a movement.</p>
 	<p>Backed by the Kendu Community, we’re here to support the next generation of skaters, riders, racers, and shredders.</p>
 	<p>From mountains to oceans, parks to tracks.</p>
-	<p style="margin: 20px 0;"></p>
 	<p>We are</p>
 	<h3 class="title-unleashed">The UNLEASHED</h3>
 	<div class="cta-row">
@@ -113,8 +86,8 @@
      <img src="/assets/images/cliff-dive.jpg" alt="" class="edge-img">
     </div>
     <div class="section-inner container">
-      <div class="card reveal" style="text-align:center; max-width:980px; margin-inline:auto;">
-        <h1>About Kendu Unleashed</h1>
+      <div class="card reveal">
+        <h2>About Kendu Unleashed</h2>
         <p>At Kendu Unleashed, we believe greatness lives in every rider, skater, racer, and athlete who dares to push past limits. More than just a brand, Kendu Unleashed is a movement built on discipline, creativity, and community — a call to unleash your full potential on the board, on the track, in the park, and in life.</p>
         <p>Born from the world of action sports, Kendu Unleashed represents those who refuse to settle. From the First Wave of supporters to the generations that follow, our mission is simple: fuel athletes, empower communities, and create a culture that inspires progression at every level.</p>
         <p>We’re here for the athletes grinding in the park or shredding the waves, the kids chasing their first podium and the fans who live for the energy of competition. Whether it’s through apparel, events, or athlete sponsorships, Kendu Unleashed exists to support the journey of all athletes and celebrate the moments that matter.</p>
@@ -132,11 +105,10 @@
      <img src="/assets/images/surf-action.jpg" alt="" class="edge-img">
     </div>
     <div class="section-inner container">
-      <div class="card reveal" style="text-align:center; max-width:980px; margin-inline:auto;">
-        <h1>Athletes</h1>
+      <div class="card reveal">
+        <h2>Athletes</h2>
         <p>We’re building the Kendu Unleashed roster — a collective of skaters, riders, racers, and creators who live to push past limits and inspire their communities.</p>
         <p>If you’ve got the passion, discipline, and creativity to represent The Unleashed, we want to hear from you.</p>
-	<p style="margin: 20px 0;"></p>
         <p><strong>What we look for:</strong></p>
         <ul class="sponsor-list">
           <li>Dedication on and off the board, track, or park</li>
@@ -160,8 +132,8 @@
      <img src="/assets/images/surf-barrel.jpg" alt="" class="edge-img">
     </div>
     <div class="section-inner container">
-      <div class="card reveal" style="text-align:center; max-width:980px; margin-inline:auto;">
-        <h1>Events</h1>
+      <div class="card reveal">
+        <h2>Events</h2>
         <p>Stay tuned — upcoming events, pop-ups, and community sessions are on the way. First Wave supporters will get exclusive access and early invites.</p>
         <p>Want to host a Kendu event? <a href="#contact">Contact us</a></p>
       </div>
@@ -171,8 +143,8 @@
   <!-- MERCH -->
   <section id="merch" class="page hero bg-merch">
     <div class="section-inner container">
-      <div class="card reveal" style="text-align:center">
-        <h1>Merch</h1>
+      <div class="card reveal">
+        <h2>Merch</h2>
 	<div class="cta-row">
   	  <a class="btn" href="https://shop.kendu-unleashed.com" target="_blank" rel="noopener">Catch the First Wave</a>
 	</div>
@@ -215,8 +187,8 @@
   <div class="section-inner container">
 
     <!-- Overview card (unchanged copy) -->
-    <div class="card reveal" style="text-align:center; max-width:980px; margin-inline:auto;">
-      <h1>Sponsorships</h1>
+    <div class="card reveal">
+      <h2>Sponsorships</h2>
       <p><strong>🏆 Athlete Sponsorship Tiers</strong></p>
       <p>At Kendu Unleashed, athletes aren’t just supported — they’re family. Our sponsorships are designed to grow with you, from first contests to major podiums.</p>
       <p>We support athletes who embody the Kendu mindset — disciplined, creative, and community-driven. Our sponsorships help riders, racers, and skaters unlock their potential while giving them a platform to inspire others.</p>
@@ -279,7 +251,7 @@
   <section id="community" class="page hero bg-community">
     <div class="section-inner container">
       <div class="card reveal">
-        <h1>Community Connections</h1>
+        <h2>Community Connections</h2>
 
         <h3>Kendu.io</h3>
         <p>The official hub for everything Kendu. Your entry point into the movement.</p>
@@ -454,8 +426,8 @@
      <img src="/assets/images/longboard.jpg" alt="" class="edge-img">
     </div>
     <div class="section-inner container">
-      <div class="card reveal" style="text-align:center">
-        <h1>Contact</h1>
+      <div class="card reveal">
+        <h2>Contact</h2>
         <p>Got ideas, events, or partnership opportunities? Reach out.</p>
 
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
@@ -500,8 +472,8 @@
   <!-- APPLICATION -->
   <section id="application" class="page hero bg-sponsor">
     <div class="section-inner container">
-      <div class="card" style="text-align:center">
-        <h1>Athlete Application</h1>
+      <div class="card">
+        <h2>Athlete Application</h2>
         <p>Tell us your story and how you move the culture forward. We read every submission.</p>
 
         <form name="athlete-application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
@@ -554,7 +526,7 @@
       <a class="btn" href="#community">Join the Community</a>
       <a class="btn" href="https://shop.kendu-unleashed.com" target="_blank" rel="noopener">Shop The Collection</a>
     </div>
-    <button class="btn alt" id="thanks-close" style="margin-top:12px;">Close</button>
+    <button class="btn alt" id="thanks-close">Close</button>
   </div>
 </div>
 
