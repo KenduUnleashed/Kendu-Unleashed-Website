@@ -1,0 +1,643 @@
+/* ===== Root & Theme ===== */
+
+/* ===== Reset ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* ===== Global links / accents ===== */
+a,.accent{color:var(--accent);text-shadow:var(--glow-orange)}
+
+/* ===== Section / Page backgrounds ===== */
+.page{
+  display:flex;
+  align-items:center;
+  padding: clamp(32px, 6vw, 64px) 2rem;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-image:radial-gradient(1400px 900px at 50% 18%, rgba(0,0,0,0.012), transparent 62%);
+  min-height:clamp(520px,78vh,860px);
+}
+@media (max-width:480px){
+  .page{min-height:70vh;padding:28px 1.25rem;}
+}
+
+/* ===== Cards ===== */
+.card{
+  width:min(1100px,100%);
+  margin:0 auto;
+  text-align:center;
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:clamp(20px,4vw,36px);
+  box-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+.card h1::after,.card h2::after{
+  content:"";display:block;width:66px;height:4px;margin:10px auto 0;
+  background:var(--accent);border-radius:3px;box-shadow:var(--glow-orange);
+}
+
+/* ===== Hero headings ===== */
+.hero{text-align:center}
+.hero h1,.hero h2,.hero h3{margin-bottom:1rem;position:relative}
+.hero h1::after,.title-xl::after{
+  content:'';display:block;width:60px;height:3px;margin:.75rem auto 0;
+  background:var(--accent);box-shadow:0 0 18px rgba(255,92,0,.6);border-radius:2px;
+}
+
+/* dramatic UNLEASHED line */
+.title-unleashed{
+  font-size:clamp(2rem,5vw,3.5rem);
+  font-weight:900;text-transform:uppercase;text-align:center;color:#000;letter-spacing:3px;
+  text-shadow:0 0 6px rgba(255,92,0,.8),0 0 14px rgba(255,92,0,.7),
+              0 0 28px rgba(255,140,0,.8),0 0 42px rgba(255,140,0,.9);
+  margin-top:.5rem;
+}
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-block;padding:.75rem 1.5rem;border-radius:8px;
+  background:#1b1b1b;color:#eee;border:1px solid #2b2b2b;text-decoration:none;
+  font-weight:600;transition:all .25s ease;box-shadow:var(--glow-orange)
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 16px rgba(255,140,0,.6),0 0 2px rgba(255,140,0,.25)}
+.btn.alt{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff}
+.cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+
+/* ===== Navigation ===== */
+nav{
+  background:rgba(0,0,0,.8);
+  padding:.75rem 2rem;
+  position:sticky;top:0;z-index:1000;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.navwrap{display:flex;align-items:center;justify-content:space-between;overflow:hidden}
+.navwrap ul{list-style:none;margin:0;padding:0}
+.navbrand{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--text);font-weight:bold}
+/* --- Navbar Logo Sizing --- */
+.navbrand img{
+  height:52px;       /* was max-height:37px */
+  width:auto;        /* keep aspect ratio */
+  max-height:56px;   /* safety cap */
+  display:block;     /* avoids stray inline gaps */
+  filter: drop-shadow(0 0 4px rgba(255,92,0,.35)) drop-shadow(0 0 8px rgba(255,140,0,.25));
+
+}
+
+/* Slightly smaller on mobile */
+@media (max-width:768px){
+  .navbrand img{ height:42px; }
+}
+
+.navlinks{display:flex;gap:1.25rem}
+.navlinks a{text-decoration:none;color:var(--text);transition:color .3s ease,text-shadow .3s ease}
+.navlinks a:hover,.navlinks a.active{color:var(--accent);text-shadow:0 0 6px rgba(255,92,0,.6)}
+
+/* hamburger fix */
+.navtoggle{background:transparent;border:none;outline:none;padding:.5rem;border-radius:8px;box-shadow:none;line-height:0;display:none}
+@media (max-width:900px){.navtoggle{display:block}}
+.hamburger{position:relative;width:22px;height:2px;background:var(--text);display:block}
+.hamburger::before,.hamburger::after{
+  content:"";position:absolute;left:0;width:22px;height:2px;background:var(--text)
+}
+.hamburger::before{top:-6px}.hamburger::after{top:6px}
+
+/* ===== Brand grid ===== */
+.brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.brand-card{
+  background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.08);border-radius:14px;
+  padding:1.5rem;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.3);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.brand-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.45)}
+.brand-card img{max-width:80px;margin-bottom:1rem}
+
+/* ===== Forms ===== */
+form{display:grid;gap:1rem;max-width:600px;margin:2rem auto}
+input,textarea,select{
+  padding:.75rem;border-radius:8px;border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.05);color:var(--text);font-size:1rem;
+}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 8px rgba(255,92,0,.6)}
+select option{background:#111;color:#fff}
+
+/* ===== Sponsorship tiers ===== */
+.tier{margin-bottom:2rem;text-transform:none;letter-spacing:.2px}
+.tier h3{margin-bottom:.25rem}
+.tier.bronze{color:#cd7f32;text-shadow:0 0 6px rgba(205,127,50,.6)}
+.tier.silver{color:#c0c0c0;text-shadow:0 0 6px rgba(192,192,192,.6)}
+.tier.gold{color:#ffd700;text-shadow:0 0 6px rgba(255,215,0,.7)}
+.sponsor-list{list-style:disc;list-style-position:inside;padding:0;margin:.5rem 0 1.25rem;text-align:center}
+.sponsor-list li{margin:.25rem 0}
+
+/* ===== Merch grid ===== */
+.product-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.25rem;margin-top:1rem
+}
+.product-card{
+  display:block;background:rgba(0,0,0,.38);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:1rem;text-align:center;color:var(--text);
+  box-shadow:0 6px 18px rgba(0,0,0,.3);
+  transition:transform .2s ease, box-shadow .2s ease;text-decoration:none
+}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.45),0 0 16px rgba(255,140,0,.10)}
+.product-media{
+  aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);margin-bottom:.75rem
+}
+.product-media img{width:100%;height:auto;display:block}
+.product img{max-width:320px;height:auto;display:block;margin:0 auto}
+@media (max-width:768px){.product img{max-width:200px}}
+@media (max-width:480px){.product-media{max-width:260px;margin-inline:auto}}
+
+/* ===== Footer ===== */
+footer{
+  padding:2rem;text-align:center;background:rgba(0,0,0,.85);
+  font-size:.9rem;border-top:1px solid rgba(255,255,255,.1)
+}
+.footerwrap{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+.footerwrap .social{display:flex;gap:1rem}
+footer .social a{display:inline-flex;gap:8px;align-items:center}
+footer .social svg{width:18px;height:18px;flex:0 0 18px;fill:currentColor}
+
+/* ===== Screen-reader only ===== */
+.sr-only{
+  position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,1px,1px);white-space:nowrap;border:0
+}
+
+/* ===== Reveal-on-scroll ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Sponsorship tiers grid */
+.tiers-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+/* Make cards breathe a touch more */
+.tiers-grid .card{
+  text-align: center;
+  padding: clamp(18px, 3.5vw, 28px);
+}
+
+/* Headings spacing consistency */
+.tiers-grid .card h3{
+  margin-bottom: .5rem;
+}
+
+/* Centered bullets already exist via .sponsor-list; add slight tightening */
+.tiers-grid .sponsor-list{
+  margin-top: .25rem;
+}
+
+/* Responsive: stack on tablets/phones */
+@media (max-width: 900px){
+  .tiers-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px){
+  .tiers-grid{ grid-template-columns: 1fr; }
+}
+
+/* Thank-you modal */
+.modal-overlay{
+  position:fixed; inset:0; display:none;
+  align-items:center; justify-content:center;
+  background:rgba(0,0,0,.65); z-index:2000;
+}
+.modal-overlay.is-open{ display:flex; }
+.modal-content{ max-width:720px; }
+/* Modal CTA polish */
+.modal-content .btn{ min-width:220px; }
+@media (max-width:520px){
+  .modal-content .btn{ width:100%; }
+}
+
+/* === KENDU MATTE-GRAY THEME OVERRIDES =============================== */
+/* Place at the very bottom of styles.css */
+
+/* Base */
+body{
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* Links */
+a,.accent{
+  color: var(--accent);
+  text-shadow: none;
+}
+
+/* Sections: remove heavy dark overlay; keep gentle vignette only */
+.page{
+  min-height: clamp(520px,78vh,860px);
+  background: var(--bg);
+  background-image:
+    radial-gradient(1400px 900px at 50% 18%, rgba(0,0,0,0.012), transparent 62%); color: var(--ink);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Cards: light, matte surfaces */
+.card{
+  background: var(--surface);
+  border: none; /* cleaner matte look */
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.35),
+    0 8px 24px rgba(0,0,0,0.45); /* deep shadow gives separation */
+  color: var(--ink);
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.card:hover{
+  transform: translateY(-3px);
+  box-shadow:
+    0 4px 8px rgba(0,0,0,0.45),
+    0 12px 32px rgba(0,0,0,0.55);
+}
+
+
+/* Hero headings */
+.hero h1::after,.title-xl::after{ background: var(--ink); box-shadow: none; }
+.title-unleashed{
+  color: var(--ink);
+  text-shadow: none;
+  letter-spacing: 2px;
+}
+
+/* Buttons: primary = black; alt = outline black */
+.btn{
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 1px solid var(--accent);
+  box-shadow: none;
+}
+.btn:hover{ transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.12); }
+.btn.alt{
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+/* Nav: translucent light bar */
+nav{
+  background: rgba(255,255,255,.75);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.navlinks a{ color: var(--ink); }
+.navlinks a:hover,.navlinks a.active{ color: var(--accent); text-shadow: none; }
+.hamburger,.hamburger::before,.hamburger::after{ background: var(--ink); }
+.navbrand{ color: var(--ink); }
+.navbrand img{ filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+
+/* Brand/merch tiles: brighter, product-first */
+.brand-card,
+.product-card{
+  background: #FFFFFF;
+  border: 1px solid var(--rule);
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  color: var(--ink);
+}
+.product-media{ background: #F6F7F9; border: 1px solid var(--rule); }
+
+/* Forms */
+input,textarea,select{
+  background:#FFFFFF;
+  color: var(--ink);
+  border-color: var(--rule);
+}
+input:focus,textarea:focus,select:focus{
+  border-color: #B9BDC4;
+  box-shadow: 0 0 0 3px rgba(18,19,21,.08);
+}
+select option{ background:#fff; color:#111; }
+
+/* Footer */
+footer{
+  background: #F4F5F7;
+  border-top: 1px solid var(--rule);
+  color: var(--muted-ink);
+}
+footer .social a{ color: var(--ink); }
+
+/* === Edge visuals (surf/skate silhouettes or photos) ================= */
+
+
+
+/* Subtle spacing polish for Merch */
+#merch .card { margin-bottom: .5rem; }
+#merch .product-grid { margin-top: 1.25rem; }
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+  transition: all .25s ease;
+}
+
+.page {
+  background-image: radial-gradient(1400px 900px at 50% 20%, rgba(0,0,0,0.12), transparent 60%);
+}
+
+/* Dividers under headings (hero + cards) */
+.card h1::after,.card h2::after,
+.hero h1::after,.title-xl::after{
+  background: var(--ink);
+  box-shadow: var(--glow-orange);
+}
+
+/* THE UNLEASHED */
+.title-unleashed{
+  color: var(--ink);
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 6px rgba(255,92,0,.65),
+    0 0 14px rgba(255,92,0,.5),
+    0 0 26px rgba(255,140,0,.45);
+}
+
+
+/* ====== KENDU MATTE v2 – Clean override ============================= */
+/* Palette (keeps your matte #707070 base + lighter cards) */
+:root{
+  --bg: #707070;
+  --surface: #828282;
+  --ink: #E2E2E2;
+  --muted-ink: #C0C0C0;
+  --rule: #777777;
+  --accent: #FF8C00;
+  --accent-ink: #121315;
+  --glow-orange: 0 0 10px rgba(255,140,0,.55), 0 0 2px rgba(255,140,0,.25);
+}
+
+/* Base text colors (avoid old --text usage) */
+body{ background: var(--bg); color: var(--ink); }
+
+/* One consistent page background (removes drastic section shifts) */
+.page{
+  background: var(--bg) !important;
+  background-image: radial-gradient(1400px 900px at 50% 18%, rgba(0,0,0,.12), transparent 60%) !important;
+  color: var(--ink);
+}
+
+/* Remove alternating light rows that caused big color differences */
+section.page:nth-of-type(even){ background-color: transparent !important; }
+
+.card {
+  background: rgba(124, 124, 124, 0.75); /* 75% opaque – image slightly visible */
+  backdrop-filter: blur(4px);            /* adds a soft matte frost */
+  -webkit-backdrop-filter: blur(4px);    /* Safari support */
+  
+  border: none;
+  color: var(--ink);
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.35),
+    0 8px 28px rgba(0,0,0,0.55);
+  transition: box-shadow .25s ease, transform .25s ease;
+}
+
+
+/* Dividers + UNLEASHED glow (kept) */
+.card h1::after,.card h2::after,
+.hero h1::after,.title-xl::after{
+  background: var(--ink) !important;
+  box-shadow: var(--glow-orange) !important;
+}
+.title-unleashed{
+  color: var(--ink); letter-spacing: 2px;
+  text-shadow:
+    0 0 6px rgba(255,92,0,.65),
+    0 0 14px rgba(255,92,0,.5),
+    0 0 26px rgba(255,140,0,.45) !important;
+}
+
+/* Nav – keep light/translucent, no orange glow on links */
+nav{
+  background: rgba(255,255,255,.08) !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.navlinks a{ color: var(--ink) !important; text-shadow: none !important; }
+.navlinks a.active{ color: var(--accent) !important; text-shadow: none !important; }
+
+/* Forms/merch – keep product-first */
+.brand-card,.product-card{
+  background: #FFFFFF;
+  border: 1px solid var(--rule);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  color: var(--ink);
+}
+
+/* === EDGE-IMAGE VERSION ============================================ */
+.edge-wrap{
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* <– this is key */
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  display:flex;
+  align-items:flex-end;        /* anchor at bottom */
+  padding:0 2rem 2rem;         /* inner gutter */
+  z-index:0;                   /* sits behind content */
+}
+.edge-right{ justify-content:flex-end; }
+.edge-left { justify-content:flex-start; }
+
+.edge-img {
+  width: auto;
+  max-width: min(90%, 960px); /* use percentage instead of vw */
+  height: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  filter: saturate(1.25) contrast(1.15);
+  transition: opacity .3s ease;
+}
+
+/* smaller screens */
+@media(max-width:900px){
+  .edge-wrap{ padding:0 1rem 1rem; }
+  .edge-img{ max-width:clamp(300px,58vw,720px); opacity:.8; }
+}
+
+/* optional hover lift for subtle motion */
+section:hover .edge-img{ opacity:.8; }
+
+.card, 
+.card * {
+  color: var(--ink) !important;
+}
+
+.page {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* Community & brand cards text control */
+.brand-card,
+.brand-card * {
+  color: var(--ink) !important;
+}
+
+.brand-card p,
+.brand-card a {
+  color: var(--muted-ink) !important;
+}
+
+.brand-card h3 {
+  color: var(--ink) !important;
+}
+
+/* 1) EDGE IMAGES: center vertically (still left/right anchored) */
+.edge-wrap{
+  position:absolute; inset:0; pointer-events:none;
+  display:flex;
+  justify-content:flex-end;   /* overridden by .edge-left */
+  align-items:center;         /* was flex-end; now centers vertically */
+  padding:0 2rem 2rem;
+  z-index:0;
+}
+.edge-right{ justify-content:flex-end; }
+.edge-left { justify-content:flex-start; }
+
+/* If any single section needs bottom anchoring instead, add .valign-bottom to its edge-wrap */
+.edge-wrap.valign-bottom{ align-items:flex-end; }
+
+/* 2) SECTION MIN HEIGHT (desktop + mobile) */
+.page{
+  min-height: clamp(680px, 90vh, 1100px);   /* larger baseline */
+}
+@media (max-width: 768px){
+  .page{ min-height: 78vh; }                /* comfy mobile height */
+}
+
+/* 3) TEXT TUNING: a little less bright overall */
+:root{
+  --ink: #E0E0E0;        /* was #E2E2E2 / #F2F2F2 */
+  --muted-ink: #B8B8B8;  /* was #C0C0C0 */
+}
+body{ color: var(--ink); }
+.card, .card *{ color: var(--ink) !important; }
+.card p, .card .subtitle{ color: var(--muted-ink) !important; }
+
+/* 4) NAVBAR LOGO: bigger + darker */
+.navbrand img{
+  height: 64px;          /* was ~52px */
+  max-height: 68px;
+  width: auto;
+  filter: brightness(0.75) contrast(1.25); /* darken without muddying */
+}
+@media (max-width: 900px){
+  .navbrand img{ height: 48px; max-height: 52px; }
+}
+
+/* 5) COMMUNITY CARDS: match other cards (no white panels) */
+.brand-card{
+  background: rgba(124,124,124,0.75) !important; /* same translucency as main cards */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(0,0,0,.25) !important;
+  color: var(--ink) !important;
+}
+.brand-card p, .brand-card a{ color: var(--muted-ink) !important; }
+.brand-card h3{ color: var(--ink) !important; }
+
+/* === A) Ink-glass cards (blackish, translucent, readable) ========== */
+.card{
+  /* black-ish transparent panel */
+  background: rgba(10, 12, 14, 0.55);        /* ← main change */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--ink);
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.35),
+    0 14px 36px rgba(0,0,0,0.55);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.card:hover{
+  transform: translateY(-2px);
+  background: rgba(10, 12, 14, 0.6);
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.4),
+    0 18px 44px rgba(0,0,0,0.6);
+}
+
+/* Make “community” cards match */
+.brand-card{
+  background: rgba(10,12,14,0.55) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Dim secondary text a touch so the glass reads nicer */
+.card p,
+.card .subtitle,
+.brand-card p { color: var(--muted-ink) !important; }
+
+/* === B) Show more photo, less flat gray ============================ */
+.edge-wrap{ align-items: center; } /* vertical center stays */
+.edge-img{
+  max-width: clamp(520px, 52vw, 1100px);     /* bigger images */
+  opacity: .82;                               /* slightly bolder */
+  filter: saturate(1.12) contrast(1.08);
+}
+
+/* === C) Reduce section gray space (less empty padding) ============= */
+.page{
+  /* still tall, but not huge */
+  min-height: clamp(560px, 80vh, 940px);
+  /* soften vignette so photos pop */
+  background-image: radial-gradient(1400px 900px at 50% 18%, rgba(0,0,0,.12), transparent 60%);
+}
+
+/* === D) Dark form controls (fix bright dropdowns) ================== */
+input, textarea, select{
+  background: rgba(20,20,22,0.55);
+  color: #E6E6E6;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+input::placeholder, textarea::placeholder{ color: #A9A9A9; }
+select option{
+  background: #2A2A2B;        /* dropdown menu paper */
+  color: #E6E6E6;
+}
+input:focus, textarea:focus, select:focus{
+  outline: none;
+  border-color: #FF8C00;
+  box-shadow: 0 0 0 3px rgba(255,140,0,.25);
+}
+
+/* === E) Nav logo: a bit darker & larger ============================ */
+.navbrand img{
+  height: 64px;
+  filter: brightness(0.72) contrast(1.25);
+}
+@media (max-width: 900px){ .navbrand img{ height: 52px; } }

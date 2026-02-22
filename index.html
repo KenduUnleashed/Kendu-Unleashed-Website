@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#E6E8EB" />
+  <title>Kendu Unleashed</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Smooth scrolling + single-page helpers -->
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Make sections banner-height, not full-screen */
+    section.page {
+      position: relative;
+      min-height: clamp(380px, 48vh, 520px);
+      display: flex;
+      align-items: center;
+    }
+    .section-inner { position: relative; z-index: 1; width: 100%; }
+    .section-inner.container { padding-top: 4rem; padding-bottom: 3rem; }
+    .navlinks a.active { color: var(--accent); text-shadow: 0 0 6px rgba(255,92,0,.6); }
+
+    /* Mobile nav toggle (guard if not present in styles.css) */
+    @media (max-width: 900px){
+      .navtoggle{ display:block; }
+      .navlinks{
+        position:fixed; top:64px; left:0; right:0; display:none; flex-direction:column; gap:.25rem;
+        background:rgba(12,12,12,.96); backdrop-filter:saturate(1.1) blur(8px);
+        padding:1rem 1.25rem; border-bottom:1px solid rgba(255,255,255,.08); z-index:999;
+      }
+      .navlinks.open{ display:flex; }
+      .hero, main{ padding-top:64px; }
+    }
+
+    .brand-card p { margin-bottom: 1rem; }
+    hr.section { margin: 2rem 0; border: 0; border-top: 1px solid rgba(255,255,255,.2); }
+  </style>
+
+  <!-- Favicons -->
+  <link rel="shortcut icon" href="/assets/favicons/favicon.ico?v=4">
+  <link rel="icon" href="/favicon.ico?v=4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png?v=4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v=4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png?v=4">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicons/favicon-192x192.png?v=4">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicons/favicon-512x512.png?v=4">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kendu Unleashed" />
+  <meta property="og:description" content="Join the movement. Athletes, events, merch, and community—one place." />
+  <meta property="og:image" content="/assets/images/logo-main.png" />
+  <meta property="og:url" content="https://kendu-unleashed.com/" />
+  <meta name="theme-color" content="#0f0f10" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="navwrap container">
+      <a class="navbrand" href="#home">
+        <img src="/assets/favicons/favicon-512x512.png" alt="Kendu icon"><span>Kendu Unleashed</span>
+      </a>
+
+      <!-- Hamburger button -->
+      <button class="navtoggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Menu">
+        <span class="hamburger"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+
+      <div id="primary-nav" class="navlinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#athletes">Athletes</a>
+        <a href="#events">Events</a>
+        <a href="#merch">Merch</a>
+        <a href="#sponsorships">Sponsorships</a>
+        <a href="#community">Community</a>
+        <a href="#contact">Contact</a>
+        <a href="#application">Application</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <section id="home" class="page hero bg-home">
+    <div class="edge-wrap edge-right">
+      <img src="/assets/images/surf-dog.jpg" alt="" class="edge-img">
+    </div>
+    <div class="section-inner container">
+      <div class="card reveal" style="text-align:center">
+        <h1 class="title-xl">Welcome to the First Wave.</h1>
+	<h2 class="title-l">This is Kendu Unleashed.</h2>
+        <p>We are not just a brand — We are a movement.</p>
+	<p>Backed by the Kendu Community, we’re here to support the next generation of skaters, riders, racers, and shredders.</p>
+	<p>From mountains to oceans, parks to tracks.</p>
+	<p style="margin: 20px 0;"></p>
+	<p>We are</p>
+	<h3 class="title-unleashed">The UNLEASHED</h3>
+	<div class="cta-row">
+         <a class="btn" href="#community">Join the Community</a>
+         <a class="btn alt" href="#merch">Catch the First Wave</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="page hero bg-about">
+    <div class="edge-wrap edge-left">
+     <img src="/assets/images/cliff-dive.jpg" alt="" class="edge-img">
+    </div>
+    <div class="section-inner container">
+      <div class="card reveal" style="text-align:center; max-width:980px; margin-inline:auto;">
+        <h1>About Kendu Unleashed</h1>
+        <p>At Kendu Unleashed, we believe greatness lives in every rider, skater, racer, and athlete who dares to push past limits. More than just a brand, Kendu Unleashed is a movement built on discipline, creativity, and community — a call to unleash your full potential on the board, on the track, in the park, and in life.</p>
+        <p>Born from the world of action sports, Kendu Unleashed represents those who refuse to settle. From the First Wave of supporters to the generations that follow, our mission is simple: fuel athletes, empower communities, and create a culture that inspires progression at every level.</p>
+        <p>We’re here for the athletes grinding in the park or shredding the waves, the kids chasing their first podium and the fans who live for the energy of competition. Whether it’s through apparel, events, or athlete sponsorships, Kendu Unleashed exists to support the journey of all athletes and celebrate the moments that matter.</p>
+        <p>We are more than a brand.<br>We are The Unleashed.</p>
+        <div class="cta-row">
+          <a class="btn" href="#athletes">Meet the Athletes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATHLETES -->
+  <section id="athletes" class="page hero bg-athletes">
+    <div class="edge-wrap edge-right">
+     <img src="/assets/images/surf-action.jpg" alt="" class="edge-img">
+    </div>
+    <div class="section-inner container">
+      <div class="card reveal" style="text-align:center; max-width:980px; margin-inline:auto;">
+        <h1>Athletes</h1>
+        <p>We’re building the Kendu Unleashed roster — a collective of skaters, riders, racers, and creators who live to push past limits and inspire their communities.</p>
+        <p>If you’ve got the passion, discipline, and creativity to represent The Unleashed, we want to hear from you.</p>
+	<p style="margin: 20px 0;"></p>
+        <p><strong>What we look for:</strong></p>
+        <ul class="sponsor-list">
+          <li>Dedication on and off the board, track, or park</li>
+          <li>Community-driven mindset</li>
+          <li>Progression, creativity, and resilience</li>
+          <li>A willingness to rep the Kendu movement with pride</li>
+        </ul>
+
+        <p>Think you’ve got what it takes?<br>Apply below to be considered for sponsorships and athlete features.</p>
+
+        <div class="cta-row">
+          <a class="btn" href="#application">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="page hero bg-events">
+    <div class="edge-wrap edge-left">
+     <img src="/assets/images/surf-barrel.jpg" alt="" class="edge-img">
+    </div>
+    <div class="section-inner container">
+      <div class="card reveal" style="text-align:center; max-width:980px; margin-inline:auto;">
+        <h1>Events</h1>
+        <p>Stay tuned — upcoming events, pop-ups, and community sessions are on the way. First Wave supporters will get exclusive access and early invites.</p>
+        <p>Want to host a Kendu event? <a href="#contact">Contact us</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section id="merch" class="page hero bg-merch">
+    <div class="section-inner container">
+      <div class="card reveal" style="text-align:center">
+        <h1>Merch</h1>
+	<div class="cta-row">
+  	  <a class="btn" href="https://shop.kendu-unleashed.com" target="_blank" rel="noopener">Catch the First Wave</a>
+	</div>
+	<p><strong>It only comes once</strong></p>
+	</div>
+
+        <!-- Mini merch preview -->
+<div class="product-grid">
+  <a class="product-card" href="https://shop.kendu-unleashed.com" target="_blank" rel="noopener">
+    <div class="product-media">
+      <img src="/assets/merch/hoodie.png" alt="Kendu Unleashed First Wave Hoodie" loading="lazy" width="800" height="1000">
+    </div>
+    <h4 class="product-name">Hoodie</h4>
+  </a>
+
+  <a class="product-card" href="https://shop.kendu-unleashed.com" target="_blank" rel="noopener">
+    <div class="product-media">
+      <img src="/assets/merch/snapback.png" alt="Kendu Unleashed First Wave Snapback Hat" loading="lazy" width="800" height="1000">
+    </div>
+    <h4 class="product-name">Snapback</h4>
+  </a>
+
+  <a class="product-card" href="https://shop.kendu-unleashed.com" target="_blank" rel="noopener">
+    <div class="product-media">
+      <img src="/assets/merch/patch.png" alt="Kendu Unleashed First Wave VIP Patch" loading="lazy" width="800" height="1000">
+    </div>
+    <h4 class="product-name">Patch</h4>
+  </a>
+</div>
+
+
+    </div>
+  </section>
+
+<!-- SPONSORSHIPS -->
+<section id="sponsorships" class="page hero bg-sponsor">
+  <div class="edge-wrap edge-right">
+   <img src="/assets/images/dirtbike.jpg" alt="" class="edge-img">
+  </div>
+  <div class="section-inner container">
+
+    <!-- Overview card (unchanged copy) -->
+    <div class="card reveal" style="text-align:center; max-width:980px; margin-inline:auto;">
+      <h1>Sponsorships</h1>
+      <p><strong>🏆 Athlete Sponsorship Tiers</strong></p>
+      <p>At Kendu Unleashed, athletes aren’t just supported — they’re family. Our sponsorships are designed to grow with you, from first contests to major podiums.</p>
+      <p>We support athletes who embody the Kendu mindset — disciplined, creative, and community-driven. Our sponsorships help riders, racers, and skaters unlock their potential while giving them a platform to inspire others.</p>
+    </div>
+
+    <!-- Tier cards grid -->
+    <div class="tiers-grid">
+
+      <!-- Bronze -->
+      <div class="card tier bronze reveal">
+        <h3 class="tier bronze">🥉 Bronze – Flow Support</h3>
+        <p><em>For up-and-coming athletes proving themselves in the scene.</em></p>
+        <ul class="sponsor-list">
+          <li>Starter Gear Pack (1 t-shirt + 1 hat + 1 sticker pack)</li>
+          <li>Shoutouts &amp; reposts on Kendu social media</li>
+          <li>Name listed on the Kendu Community page</li>
+          <li>Access to exclusive First Wave community events</li>
+        </ul>
+      </div>
+
+      <!-- Silver -->
+      <div class="card tier silver reveal">
+        <h3 class="tier silver">🥈 Silver – Community Athlete</h3>
+        <p><em>For athletes actively competing and representing in their local scene.</em></p>
+        <ul class="sponsor-list">
+          <li>All Bronze benefits</li>
+          <li>Quarterly Merch Allowance (choice of 2–3 apparel items per season)</li>
+          <li>Social media collabs + feature post on Kendu channels</li>
+          <li>Discounts on additional Kendu gear</li>
+          <li>Priority consideration for Gold level</li>
+        </ul>
+      </div>
+
+      <!-- Gold -->
+      <div class="card tier gold reveal">
+        <h3 class="tier gold">🥇 Gold – Sponsored Athlete</h3>
+        <p><em>For established athletes making podiums and leading their community.</em></p>
+        <ul class="sponsor-list">
+          <li>All Silver benefits</li>
+          <li>Full Merch Support (event gear, hoodie, multiple tees, hat, and accessories)</li>
+          <li>Dedicated highlight post + athlete feature on Kendu channels</li>
+          <li>Partial event registration support (case by case)</li>
+          <li>Early access to new product drops &amp; prototype gear</li>
+          <li>Athlete profile spotlighted on Kendu site</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- CTA (unchanged) -->
+    <div class="cta-row">
+      <a class="btn" href="#application">Ready to get sponsored? Apply now →</a>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- COMMUNITY -->
+  <section id="community" class="page hero bg-community">
+    <div class="section-inner container">
+      <div class="card reveal">
+        <h1>Community Connections</h1>
+
+        <h3>Kendu.io</h3>
+        <p>The official hub for everything Kendu. Your entry point into the movement.</p>
+        <p>🔗 <a href="https://kendu.io" target="_blank" rel="noopener">Kendu.io</a></p>
+        <div class="cta-row">
+          <a class="btn" href="https://kendu.io" target="_blank" rel="noopener">Ready to get involved? Join Here →</a>
+        </div>
+
+        <hr class="section">
+        <h2>Core Lifestyle Brands</h2>
+
+        <div class="brand-grid">
+          <!-- Street -->
+          <div class="brand-card">
+            <picture>
+              <source srcset="/assets/community-logos/kendu-street.avif" type="image/avif" />
+              <img src="/assets/community-logos/kendu-street.avif" alt="KenduSTREET logo" loading="lazy">
+            </picture>
+            <h3>KenduSTREET</h3>
+            <p>The streets are the heart of Kendu. From skate parks to city corners, KenduSTREET is where the culture lives and breathes.</p>
+            <p>🔗 <a href="https://instagram.com/Kendu_Unleashed" target="_blank" rel="noopener">Instagram</a></p>
+          </div>
+
+          <!-- Energy -->
+          <div class="brand-card">
+            <picture>
+              <source srcset="/assets/community-logos/kendu-energy.avif" type="image/avif" />
+              <img src="/assets/community-logos/kendu-energy.avif" alt="Kendu Energy logo" loading="lazy">
+            </picture>
+            <h3>🧃 Kendu Energy Drink</h3>
+            <p>Fuel for the Unleashed. Clean energy for athletes, creators, and dreamers.</p>
+            <p>🔗 <a href="https://kenduenergy.com/products/energy-drinks-usa-can-aus" target="_blank" rel="noopener">Shop Kendu Energy</a></p>
+          </div>
+
+          <!-- Coffee -->
+          <div class="brand-card">
+            <picture>
+              <source srcset="/assets/community-logos/kendu-coffee.avif" type="image/avif" />
+              <img src="/assets/community-logos/kendu-coffee.avif" alt="Kendu Coffee logo" loading="lazy">
+            </picture>
+            <h3>☕ Kendu Coffee</h3>
+            <p>Brewed for early mornings, late nights, and every session in between.</p>
+            <p>🔗 <a href="https://kenducoffee.com" target="_blank" rel="noopener">Shop Kendu Coffee</a><br>
+               🔗 <a href="https://x.com/KenduCoffee" target="_blank" rel="noopener">@KenduCoffee on X</a></p>
+          </div>
+
+          <!-- Creator -->
+          <div class="brand-card">
+            <picture>
+              <source srcset="/assets/community-logos/kendu-creator.avif" type="image/avif" />
+              <img src="/assets/community-logos/kendu-creator.avif" alt="Kendu Creator logo" loading="lazy">
+            </picture>
+            <h3>🎨 Kendu Creator</h3>
+            <p>A platform to unleash your vision through art, media, and collaboration.</p>
+            <p>🔗 <a href="https://kenducreator.com" target="_blank" rel="noopener">Kendu Creator</a></p>
+          </div>
+        </div><!-- end core grid -->
+
+        <hr class="section">
+        <h2>Creative &amp; Fashion</h2>
+
+        <div class="brand-grid">
+          <!-- Unstitched (fashion) -->
+          <div class="brand-card">
+            <picture>
+              <source srcset="/assets/community-logos/kendu-unstitched.avif" type="image/avif" />
+              <img src="/assets/community-logos/kendu-unstitched.avif" alt="Kendu Unstitched logo" loading="lazy">
+            </picture>
+            <h3>🧵 Kendu Unstitched</h3>
+            <p>Raw, minimal, unfiltered — fashion without limits.</p>
+            <p>🔗 <a href="https://kendu-unstitched.square.site/" target="_blank" rel="noopener">Shop Kendu Unstitched</a></p>
+          </div>
+
+          <!-- Brilliance -->
+          <div class="brand-card">
+            <picture>
+              <source srcset="/assets/community-logos/kendu-brilliance.avif" type="image/avif" />
+              <img src="/assets/community-logos/kendu-brilliance.avif" alt="Kendu Brilliance logo" loading="lazy">
+            </picture>
+            <h3>💎 Kendu Brilliance</h3>
+            <p>Shining a light on creativity, innovation, and community.</p>
+            <p>🔗 <a href="https://kendubrilliance.com" target="_blank" rel="noopener">kendubrilliance.com</a><br>
+               🔗 <a href="https://x.com/KenduBrilliance" target="_blank" rel="noopener">@KenduBrilliance on X</a></p>
+          </div>
+
+          <!-- Spice -->
+          <div class="brand-card">
+            <picture>
+              <source srcset="/assets/community-logos/kendu-spice.avif" type="image/avif" />
+              <img src="/assets/community-logos/kendu-spice.avif" alt="Kendu Spice logo" loading="lazy">
+            </picture>
+            <h3>🌶️ Kendu Spice</h3>
+            <p>Flavor with attitude — built for the bold.</p>
+            <p>🔗 <a href="https://x.com/KenduSpice" target="_blank" rel="noopener">@KenduSpice on X</a></p>
+          </div>
+        </div><!-- end creative grid -->
+
+        <hr class="section">
+        <h2>Expansions</h2>
+
+        <div class="brand-grid">
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-games.avif" type="image/avif" /><img src="/assets/community-logos/kendu-games.avif" alt="Kendu Games logo" loading="lazy"></picture>
+            <h3>🎮 Kendu Games</h3>
+            <p>Indie studio by ex-Bioware &amp; AAA devs. Play bold, play Kendu.</p>
+            <p>🔗 <a href="https://x.com/KenduGames" target="_blank" rel="noopener">@KenduGames on X</a></p>
+          </div>
+
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-entertainment.avif" type="image/avif" /><img src="/assets/community-logos/kendu-entertainment.avif" alt="Kendu Entertainment logo" loading="lazy"></picture>
+            <h3>🎵 Kendu Entertainment</h3>
+            <p>Clubs, music, and sport — Kolkata's nights light up with Kendu.</p>
+            <p>🔗 <a href="https://x.com/kenduentertain" target="_blank" rel="noopener">@kenduentertain on X</a></p>
+          </div>
+
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-elements.avif" type="image/avif" /><img src="/assets/community-logos/kendu-elements.avif" alt="Kendu Elements logo" loading="lazy"></picture>
+            <h3>⚡ Kendu Elements</h3>
+            <p>NFT project supercharging initiatives to help Kendu grow.</p>
+            <p>🔗 <a href="https://kenduelements.xyz/" target="_blank" rel="noopener">kenduelements.xyz</a></p>
+          </div>
+
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-beer.avif" type="image/avif" /><img src="/assets/community-logos/kendu-beer.avif" alt="Kendu Beer logo" loading="lazy"></picture>
+            <h3>🍺 Kendu Beer</h3>
+            <p>Brewed in the EU, crafted with spirit. Kendu Beer.</p>
+            <p>🔗 <a href="https://x.com/kendubeers" target="_blank" rel="noopener">@kendubeers on X</a></p>
+          </div>
+
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-plushies.avif" type="image/avif" /><img src="/assets/community-logos/kendu-plushies.avif" alt="Kendu Plushies logo" loading="lazy"></picture>
+            <h3>🧸 Kendu Plushies</h3>
+            <p>Plushies with a tale to tell. Hug the Kendu story.</p>
+            <p>🔗 <a href="https://kendu-tales.online/" target="_blank" rel="noopener">kendu-tales.online</a></p>
+          </div>
+
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-printables.avif" type="image/avif" /><img src="/assets/community-logos/kendu-printables.avif" alt="Kendu Printables logo" loading="lazy"></picture>
+            <h3>🖨️ Kendu Printables</h3>
+            <p>Keychains, glasses, and more. Print your Kendu fun.</p>
+            <p>🔗 <a href="https://www.printables.com/@KenduWood_2995984" target="_blank" rel="noopener">Kendu on Printables</a></p>
+          </div>
+
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-vendu.avif" type="image/avif" /><img src="/assets/community-logos/kendu-vendu.avif" alt="Kendu Vendu logo" loading="lazy"></picture>
+            <h3>🛒 Kendu Vendu</h3>
+            <p>Kendu vending machines from Nashville, Tennessee.</p>
+            <p>🔗 <a href="https://x.com/KenduVendingTN" target="_blank" rel="noopener">@KenduVendingTN on X</a></p>
+          </div>
+
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-organics.avif" type="image/avif" /><img src="/assets/community-logos/kendu-organics.avif" alt="Kendu Organics logo" loading="lazy"></picture>
+            <h3>🌱 Kendu Organics</h3>
+            <p>Organic body care, powered by Kendu.</p>
+            <p>🔗 <a href="https://kenduorganics.com/" target="_blank" rel="noopener">kenduorganics.com</a></p>
+          </div>
+
+          <div class="brand-card">
+            <picture><source srcset="/assets/community-logos/kendu-sneakers.avif" type="image/avif" /><img src="/assets/community-logos/kendu-sneakers.avif" alt="Kendu Sneakers logo" loading="lazy"></picture>
+            <h3>👟 Kendu Sneakers</h3>
+            <p>Italian leather sneakers. Limited Kendu drops.</p>
+            <p>🔗 <a href="https://www.aliveshoes.com/kendu-2" target="_blank" rel="noopener">Shop Kendu Sneakers</a></p>
+          </div>
+        </div><!-- end expansions grid -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="page hero bg-contact">
+    <div class="edge-wrap edge-right">
+     <img src="/assets/images/longboard.jpg" alt="" class="edge-img">
+    </div>
+    <div class="section-inner container">
+      <div class="card reveal" style="text-align:center">
+        <h1>Contact</h1>
+        <p>Got ideas, events, or partnership opportunities? Reach out.</p>
+
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+          <label>Name</label>
+          <input type="text" name="name" required />
+
+          <label>Email</label>
+          <input type="email" name="email" required />
+
+          <label>Topic</label>
+          <select name="topic" required>
+            <option value="">Select one…</option>
+            <option>General</option>
+            <option>Partnerships</option>
+            <option>Sponsorships</option>
+            <option>Events</option>
+          </select>
+
+          <label>Message</label>
+          <textarea name="message" required></textarea>
+
+          <div class="cta-row">
+            <button class="btn" type="submit">Send</button>
+          </div>
+	   <noscript>
+  	    <meta http-equiv="refresh" content="0; url=/thank-you.html">
+	   </noscript>
+        </form>
+
+        <p style="margin-top:1rem; opacity:.9">
+          Partnerships: <a href="mailto:partnerships@kendu-unleashed.com">partnerships@kendu-unleashed.com</a> ·
+          Sponsorships: <a href="mailto:sponsorships@kendu-unleashed.com">sponsorships@kendu-unleashed.com</a> ·
+          Info: <a href="mailto:info@kendu-unleashed.com">info@kendu-unleashed.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION -->
+  <section id="application" class="page hero bg-sponsor">
+    <div class="section-inner container">
+      <div class="card" style="text-align:center">
+        <h1>Athlete Application</h1>
+        <p>Tell us your story and how you move the culture forward. We read every submission.</p>
+
+        <form name="athlete-application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="athlete-application">
+          <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+          <label>Full Name</label>
+          <input type="text" name="full-name" required />
+
+          <label>Email</label>
+          <input type="email" name="email" required />
+
+          <label>Discipline</label>
+          <select name="discipline" required>
+            <option value="">Select one…</option>
+            <option>Skate</option>
+            <option>Snow</option>
+            <option>Surf/Wake</option>
+            <option>Moto/Dirt</option>
+            <option>Track/Racing</option>
+            <option>Other</option>
+          </select>
+
+          <label>Age</label>
+          <input type="number" name="age" min="10" max="100" required />
+
+          <label>Bio / Highlights</label>
+          <textarea name="bio" required></textarea>
+
+          <label>Links (Instagram, TikTok, YouTube, etc.)</label>
+          <textarea name="links" placeholder="https://instagram.com/yourhandle&#10;https://youtube.com/…"></textarea>
+
+          <div class="cta-row">
+            <button class="btn" type="submit">Submit Application</button>
+          </div>
+	   <noscript>
+            <meta http-equiv="refresh" content="0; url=/thank-you.html">
+           </noscript>
+        </form>
+      </div>
+    </div>
+  </section>
+
+<!-- Thank-you modal -->
+<div id="thanks-modal" class="modal-overlay" aria-hidden="true">
+  <div class="card modal-content" role="dialog" aria-modal="true" aria-labelledby="thanks-title">
+    <h2 id="thanks-title">Thank You!</h2>
+    <p>We’ve received your submission. We’ll be in touch soon.</p>
+    <div class="cta-row">
+      <a class="btn" href="#community">Join the Community</a>
+      <a class="btn" href="https://shop.kendu-unleashed.com" target="_blank" rel="noopener">Shop The Collection</a>
+    </div>
+    <button class="btn alt" id="thanks-close" style="margin-top:12px;">Close</button>
+  </div>
+</div>
+
+
+  <!-- FOOTER (single, accessible) -->
+  <footer>
+    <div class="footerwrap container">
+      <div>© Kendu Unleashed 2025</div>
+      <div class="social">
+        <a href="https://x.com/KenduUnleashed"
+           target="_blank" rel="noopener"
+           aria-label="Kendu Unleashed on X (@KenduUnleashed)">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M18.9 2H22l-7.1 8.1L22.8 22h-6.6l-5.2-7-6 7H2l7.6-8.8L1.5 2h6.7l4.7 6.3L18.9 2z"/>
+          </svg>
+          <span>@KenduUnleashed</span>
+        </a>
+        <span>·</span>
+        <a href="https://instagram.com/Kendu_Unleashed" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor"
+              d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+         </svg>
+         <span>@Kendu_Unleashed</span>
+        </a>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Hamburger toggle
+    (function(){
+      const btn = document.querySelector('.navtoggle');
+      const menu = document.getElementById('primary-nav');
+      if (!btn || !menu) return;
+
+      function toggle(){
+        const open = btn.classList.toggle('open');
+        menu.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      btn.addEventListener('click', toggle);
+
+      // Close on nav click
+      menu.addEventListener('click', e=>{
+        if(e.target.tagName === 'A'){
+          btn.classList.remove('open');
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+
+      // Reset on resize
+      window.addEventListener('resize', ()=>{
+        if (window.innerWidth > 900){
+          btn.classList.remove('open');
+          menu.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+
+    // Intersection Observer: highlight nav link on scroll
+    (function(){
+      const sections = document.querySelectorAll('section.page');
+      const links = document.querySelectorAll('.navlinks a');
+
+      const opts = { root: null, rootMargin: '0px 0px -60% 0px', threshold: 0.2 };
+      const map = {};
+      links.forEach(a => { map[a.getAttribute('href').replace('#','')] = a; });
+
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          const id = entry.target.id;
+          if(entry.isIntersecting){
+            links.forEach(l=>l.classList.remove('active'));
+            if(map[id]) map[id].classList.add('active');
+          }
+        });
+      }, opts);
+
+      sections.forEach(s => obs.observe(s));
+    })();
+</script>
+<script>
+  (function () {
+    const items = document.querySelectorAll('.reveal');
+
+    // Fallback if IntersectionObserver isn't supported
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    // Toggle version: reveal when entering, hide when leaving (so it can animate more than once)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');   // fade in
+        } else {
+          entry.target.classList.remove('is-visible'); // fade out on scroll-away
+        }
+      });
+    }, { rootMargin: '0px 0px -5% 0px', threshold: 0.05 });
+
+    items.forEach(el => io.observe(el));
+
+    // Back/forward cache fix: reset on history navigation so it can animate again
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.remove('is-visible'));
+      }
+    });
+  })();
+</script>
+<script>
+(function(){
+  const modal = document.getElementById('thanks-modal');
+  const closeBtn = document.getElementById('thanks-close');
+
+  function openThanks(){
+    if(!modal) return;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+
+    // focus first interactive element
+    const focusables = modal.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])');
+    (focusables[0] || closeBtn)?.focus();
+
+    // push hash so deep-link works
+    try { history.replaceState(null,'','#thank-you'); } catch(_){}
+    document.addEventListener('keydown', onKey);
+  }
+
+  function closeThanks(){
+    if(!modal) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    if (location.hash === '#thank-you'){
+      try { history.replaceState(null,'', location.pathname + location.search); } catch(_){}
+    }
+    document.removeEventListener('keydown', onKey);
+  }
+
+  function onKey(e){
+    if (e.key === 'Escape') return closeThanks();
+    if (e.key !== 'Tab') return;
+
+    // trap focus inside modal
+    const f = modal.querySelectorAll('a,button,[tabindex]:not([tabindex="-1"])');
+    if (!f.length) return;
+    const first = f[0], last = f[f.length-1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+
+  // click to close (X button or overlay)
+  closeBtn?.addEventListener('click', closeThanks);
+  modal?.addEventListener('click', (e)=>{ if(e.target === modal) closeThanks(); });
+
+  // Submit helper: Netlify-friendly POST without leaving page
+  function submitNetlify(form){
+    const data = new FormData(form);
+    if (!data.get('form-name') && form.name) data.set('form-name', form.name);
+    return fetch('/', {
+      method:'POST',
+      headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+      body: new URLSearchParams(Array.from(data.entries())).toString()
+    });
+  }
+
+  // Wire any form by name to use the modal
+  function wireForm(formName){
+    const form = document.querySelector('form[name="'+formName+'"]');
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      submitNetlify(form)
+        .then(()=>{ try{form.reset();}catch(_){ } openThanks(); })
+        .catch(()=>{ window.location.href = '/thank-you.html'; });
+    });
+  }
+
+  // Hook BOTH forms:
+  wireForm('contact');
+  wireForm('athlete-application');
+
+  // Deep link support
+  if (location.hash === '#thank-you') openThanks();
+})();
+</script>
+
+</body>
+</html>

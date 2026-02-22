@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You • Kendu Unleashed</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <section class="page hero bg-home reveal" id="thank-you">
+    <div class="card">
+      <h1>Thank you!</h1>
+      <p>We’ve received your submission. We’ll be in touch soon.</p>
+      <div class="cta-row" style="margin-top:1rem">
+        <a class="btn" href="/#community">Join the Community</a>
+        <a class="btn alt" href="/#merch">Shop The Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional: reuse your reveal-on-scroll script safely -->
+  <script>
+    (function () {
+      const items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+      items.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>
