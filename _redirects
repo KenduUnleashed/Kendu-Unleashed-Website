@@ -28,9 +28,5 @@
 /application       /#application 301!
 # (removed the old /thank-you -> #thank-you redirect)
 
-# ---- Thank-you: serve the real page ----
-/thank-you.html    /thank-you.html 200!
-/thank-you         /thank-you.html 301
-
 # ---- SPA fallback: serve index.html for anything else ----
 /*                 /index.html 200
