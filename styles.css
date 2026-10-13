@@ -372,7 +372,8 @@ details[open] > summary {
 }
 .hero-slides {
   position: relative;
-  aspect-ratio: 4 / 3;
+  height: clamp(290px, 78vw, 480px);
+  background: var(--surface-soft);
 }
 .hero-slide {
   position: absolute;
@@ -381,23 +382,27 @@ details[open] > summary {
 .hero-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
+  object-fit: contain;
+  object-position: center;
 }
 .hero-content {
-  position: relative;
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
+  padding-block: var(--space-8);
 }
 .hero .eyebrow {
   color: var(--muted-dark);
 }
 .hero h1 {
   max-width: 12ch;
+  font-size: clamp(2.65rem, 7.5vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+.hero h1 span {
+  color: var(--on-dark);
 }
 .hero-intro {
   color: var(--muted-dark);
-  max-width: 40ch;
+  max-width: 34ch;
 }
 .hero-bar {
   display: flex;
@@ -423,7 +428,7 @@ details[open] > summary {
   place-items: center;
   min-width: 44px;
   height: 44px;
-  border: none;
+  border: 0;
   color: var(--on-dark);
   background: transparent;
   font-size: 1.15rem;
@@ -435,8 +440,7 @@ details[open] > summary {
   display: flex;
 }
 .carousel-dots button {
-  min-width: 36px;
-  width: 36px;
+  width: 44px;
 }
 .carousel-dots button::after {
   content: "";
@@ -452,13 +456,17 @@ details[open] > summary {
 }
 .carousel-controls .carousel-pause {
   font-size: 0.8rem;
-  min-width: 52px;
+  min-width: 44px;
 }
 /* ========================================
    ABOUT / BRAND
 ======================================== */
 .about-section .feature-image {
-  aspect-ratio: 1;
+  aspect-ratio: auto;
+  width: min(100%, 390px);
+  max-height: 560px;
+  object-fit: contain;
+  margin-inline: auto;
 }
 .brand-story {
   border-top: 1px solid var(--rule);
@@ -470,29 +478,108 @@ details[open] > summary {
 .athletes-section {
   background: var(--surface);
 }
-.athletes-section .feature-image {
-  aspect-ratio: 4 / 5;
-  object-position: center;
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
 }
-.athlete-grid {
+.section-heading h2 {
+  margin-bottom: 0;
+}
+.section-heading > p {
+  margin: 0;
+}
+.athletes-section .section-inner {
+  gap: 0;
+}
+.athlete-roster {
   display: grid;
-  gap: var(--space-8);
-  grid-column: 1 / -1;
+  gap: var(--space-10);
 }
-.athlete-grid:empty {
-  display: none;
+.athlete-list {
+  display: grid;
+  align-content: start;
 }
 .athlete-card {
   min-width: 0;
 }
-.athlete-card > img {
+.athlete-photo {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 .athlete-copy {
-  padding-block: var(--space-6);
+  padding-block: var(--space-5);
 }
+.athlete-copy h3 {
+  font-size: 2rem;
+  margin-bottom: var(--space-1);
+}
+.athlete-location {
+  font-size: 0.9rem;
+  margin: 0;
+}
+.athlete-sport {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-link);
+  margin: 0 0 var(--space-2);
+}
+.athlete-card--featured .athlete-copy h3 {
+  font-size: 3rem;
+}
+.athlete-list .athlete-card {
+  border-top: 1px solid var(--rule);
+}
+.athlete-list .athlete-card:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+.athlete-list .athlete-copy {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.athlete-list .athlete-sport {
+  text-align: right;
+  margin: 0;
+}
+.athlete-list .athlete-photo {
+  width: min(100%, 480px);
+  margin-top: var(--space-5);
+}
+/* ========================================
+   CULTURE / IN MOTION — full frames retain image credits
+======================================== */
+.culture-section {
+  background: var(--bg);
+}
+.culture-grid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+.culture-photo {
+  width: 100%;
+  height: auto;
+}
+.culture-grid figcaption,
+.event-photo figcaption {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-top: var(--space-3);
+}
+.brand-panorama {
+  margin-top: var(--space-12);
+}
+.brand-panorama img {
+  width: 100%;
+  height: auto;
+}
+
 /* ========================================
    EVENTS
 ======================================== */
@@ -500,7 +587,9 @@ details[open] > summary {
   border-top: 1px solid var(--rule);
 }
 .events-section .feature-image {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: auto;
+  max-height: 600px;
+  object-fit: contain;
 }
 /* ========================================
    MERCH
@@ -513,7 +602,8 @@ details[open] > summary {
 }
 .product-grid {
   display: grid;
-  gap: var(--space-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
 }
 .product-card {
   color: var(--text);
@@ -536,7 +626,14 @@ details[open] > summary {
   transform: scale(1.025);
 }
 .product-name {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 1rem;
   margin: 0;
+}
+.product-name span {
+  flex-shrink: 0;
 }
 /* ========================================
    SPONSORSHIPS
@@ -620,11 +717,9 @@ hr.section {
 /* ========================================
    CONTACT / APPLICATION / FORMS
 ======================================== */
-.contact-section .feature-image {
-  aspect-ratio: 4 / 5;
-}
-.contact-section .section-inner {
-  align-items: start;
+.contact-section .section-copy {
+  width: min(720px, 100%);
+  margin-inline: auto;
 }
 .netlify-form {
   display: grid;
@@ -690,13 +785,12 @@ textarea {
   color: var(--muted-dark);
 }
 .energy-media {
-  padding: var(--space-5);
-  background: var(--surface);
   border-radius: var(--radius);
+  overflow: hidden;
 }
 .energy-media img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  max-height: 640px;
   object-fit: contain;
 }
 /* ========================================
@@ -760,73 +854,61 @@ footer {
    RESPONSIVE LAYOUTS — mobile styles above are the default
 ======================================== */
 @media (min-width: 600px) {
-  .product-grid,
-  .brand-grid,
-  .athlete-grid {
+  .brand-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .hero-bar {
     flex-wrap: nowrap;
   }
+  .culture-grid {
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: var(--space-10);
+  }
 }
 @media (min-width: 900px) {
   .hero {
-    position: relative;
-    min-height: 680px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
   }
   .hero-slides {
-    position: absolute;
-    inset: 0;
-    aspect-ratio: auto;
-  }
-  .hero-slides::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      linear-gradient(90deg, rgb(0 0 0 / 65%), transparent 80%),
-      linear-gradient(0deg, rgb(0 0 0 / 70%), transparent 65%);
-  }
-  .hero-slide img {
-    object-position: center 40%;
+    grid-column: 2;
+    grid-row: 1;
+    height: clamp(500px, 44vw, 650px);
   }
   .hero-content {
-    padding-top: var(--space-24);
-    padding-bottom: var(--space-12);
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    width: auto;
+    margin: 0;
+    padding: var(--space-12) var(--gutter);
+  }
+  .hero h1 {
+    font-size: clamp(2.7rem, 4.65vw, 5.5rem);
   }
   .hero-bar {
-    position: relative;
+    grid-column: 1 / -1;
   }
   .about-section .section-inner,
-  .athletes-section .section-inner,
   .events-section .section-inner,
-  .contact-section .section-inner,
   .energy-section .section-inner {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-24);
   }
-  .athletes-section .feature-image {
-    grid-column: 2;
-    grid-row: 1;
-    max-height: 680px;
+  .athlete-roster {
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
   }
-  .athletes-section .section-copy {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .product-grid,
   .tiers-grid,
-  .athlete-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
   .brand-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
+
 @media (min-width: 1440px) {
   .js .navtoggle {
     display: none;

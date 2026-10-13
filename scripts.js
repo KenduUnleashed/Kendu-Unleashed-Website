@@ -113,7 +113,7 @@ document.documentElement.classList.add("js");
       !hovering &&
       visible &&
       !document.hidden &&
-      !hero.contains(document.activeElement)
+      (!hero.contains(document.activeElement) || document.activeElement === pause)
     ) {
       timer = setTimeout(() => show(current + 1), SLIDE_DELAY);
     }
@@ -131,6 +131,9 @@ document.documentElement.classList.add("js");
       paused = true;
       status.textContent = `Slide ${current + 1} of ${slides.length}. ${slides[current].querySelector("img").alt}`;
     }
+    // Prepare the next photograph before it becomes visible.
+    const nextImage = slides[(current + 1) % slides.length].querySelector("img");
+    if (nextImage) nextImage.loading = "eager";
     schedule();
   }
   hero
@@ -141,6 +144,8 @@ document.documentElement.classList.add("js");
     .addEventListener("click", () => show(current + 1, true));
   pause.addEventListener("click", () => {
     paused = !paused;
+    // Explicit Play takes effect immediately, including for touch/keyboard users.
+    if (!paused) hovering = false;
     schedule();
   });
   hero.addEventListener("mouseenter", () => {
@@ -151,8 +156,8 @@ document.documentElement.classList.add("js");
     hovering = false;
     schedule();
   });
-  hero.addEventListener("focusin", () => {
-    paused = true;
+  hero.addEventListener("focusin", (event) => {
+    if (event.target !== pause) paused = true;
     schedule();
   });
   hero.addEventListener("focusout", () => setTimeout(schedule, 0));
