@@ -1,72 +1,87 @@
-# Final polish — review and validation notes
+# Kendu Unleashed — final QA notes
 
-Base: `ui-polish-panels`, commit `ef61926c181b6651af392c449cb3b61e402b6d55`.
-Review branch: `astra-final-polish`. Production/main was not modified.
+Reviewed October 13, 2026. Branch: `astra-final-polish`, existing draft PR #2. Main/production was not modified.
 
 ## Completed
 
-- Light grayscale design with charcoal hero/partner moments and restrained orange accents.
-- Existing continuous-scroll sections, external destinations, sponsorship benefits, and form field names retained.
-- Sharp foreground photography replaces translucent background cards. No external stock assets or invented people were added.
-- Three-image hero with arrows, pagination, pause/play, touch gestures, focus/hover/offscreen pausing, and reduced-motion support.
-- Mobile viewport metadata, readable responsive type, visible keyboard focus, skip link, explicit field labels, and native thank-you dialog.
-- Plain HTML/CSS/JS with organized section comments, centralized tokens, no runtime dependencies, and owner editing instructions.
-- Existing directory retained in a disclosure; Energy moved to a separate partner feature. Repeated moto image now appears only in Athletes.
-- Removed false-positive form success behavior, no-script auto-redirect, obsolete reveal code, broken favicon/OG image paths, and duplicate thank-you redirects.
+- Current **Unleash Yourself** message throughout the homepage and metadata; retired First Wave merchandise replaced with four current supplied products.
+- Three-photo hero, lifestyle About, six approved athletes, surf/moto culture, Las Vegas event photography, multi-sport banner, and separate Energy partner feature.
+- Light grayscale foundation, selective charcoal, restrained orange, responsive typography and natural continuous scrolling.
+- Supplied photography only. Credits and full image frames retained; beach-walk video-frame black bars trimmed. Optimized derivatives organized by section; source originals retained.
+- JD uses the explicitly identified skatepark photo. DC, Staysea, Mavie, Finn, and Tristan have complete approved text entries without guessed photo identities or invented facts.
+- Existing form contracts, links, sponsorship benefits and community directory retained. Carousel Pause/Play focus behavior corrected.
+- Editing guide updated to actual final markup, imagery and owner workflows; short final handoff added.
 
 ## Validation performed
 
+The deployed preview passed **27 responsive and interaction checks** on October 13. Tests used the deployed HTML/CSS/JS in same-origin iframe viewports. Reduced-motion preferences and form responses were simulated. The temporary test page was removed from the final branch; no real messages were sent.
+
 | Check | Result |
 | --- | --- |
-| JavaScript syntax (`node --check`) | Pass |
-| Formatting / `git diff --check` | Pass |
-| All local image, stylesheet, script, favicon paths | Pass |
-| Existing link destination set | All retained |
-| Section IDs / hash destinations / duplicate IDs | Pass |
-| Logical single H1 / field labels | Pass |
-| Existing Netlify form names and field-name contracts | Preserved |
-| Inline styles / inline application scripts | Removed |
-| Netlify Deploy Preview | Successfully built and rendered |
-| Browser widths 320, 375, 390, 430, 768, 1024, 1440px | No horizontal overflow in embedded test view |
-| Rendered image availability at those widths | No broken rendered images found |
-| Browser site-script errors in isolated test view | None observed |
-| Desktop carousel next button and mobile menu open/Escape | Pass |
-| Autoplay | Observed advancing across slides |
-| Reduced-motion initialization | Starts paused |
-| Synthetic horizontal touch gesture | Advances slide and pauses autoplay |
-| Synthetic vertical touch gesture | Does not change slide |
-| Expanded community directory at 320px | No horizontal overflow |
-| Contact form with simulated HTTP 500 | Error shown; success dialog not opened |
-| Contact form with simulated HTTP 200 | Success dialog opens; Escape closes it |
-| Empty athlete application | Required fields prevent success |
-| Completed athlete application with simulated HTTP 200 | Success dialog opens; Close works |
-| `/thank-you` and legacy `/about.html` on Netlify | Resolve successfully; old about URL reaches `/#about` |
-| Shop and Kendu.io main destinations | HTTP 200 |
+| Widths 320, 375, 390, 430, 768, 1024, 1440 and 1920px | No horizontal overflow, broken images or recorded site-script errors |
+| Approved roster and merchandise | Six athletes; four current products |
+| Mobile menu / Escape | Opens and closes correctly |
+| First focused Pause click / explicit Play | Correct state and behavior |
+| Eight-second autoplay | Observed advancing |
+| Previous, next and pagination | Correct slide selection and wrap |
+| Synthetic vertical / horizontal touch gestures | Vertical preserves slide; horizontal advances and pauses |
+| All disclosures expanded at 320px | No horizontal overflow |
+| Contact HTTP 500 / network failure | Honest error; entered values retained; no success dialog |
+| Contact simulated HTTP 200 | Form resets and dialog opens |
+| Dialog Close | Closes and returns focus to submitting button |
+| Empty athlete application | Native required-field validation prevents submission |
+| Completed application, simulated HTTP 200 | Success dialog opens |
+| Reduced motion | Carousel starts paused |
+| No-JavaScript fallback | Content, visible navigation and native form action retained |
+| Local paths / anchors / unique IDs / single H1 / field labels | Pass |
+| Netlify form identifiers, field names, actions and honeypots | Preserved against uploaded baseline |
+| JavaScript syntax / git whitespace check | Pass |
+| Homepage current campaign wording | No First Wave wording remains |
+| Existing link destination set | Retained |
+| Shop and Kendu.io | HTTP 200 |
+| Energy destination | Redirects to password page; original destination retained |
+| Netlify Deploy Preview | Successful build and rendered inspection |
 
-Responsive tests used the deployed HTML/CSS/JS in same-origin iframes at the listed viewport widths. Form responses and reduced-motion preferences were simulated in an isolated temporary test wrapper. The wrapper is removed from the final branch. No real contact/application message was sent. Phone touch tests were synthetic event checks, not physical-device testing. Browser-extension console warnings were distinguished from application errors.
+Rendered screenshots were inspected for mobile hero, roster, merchandise, Energy and desktop composition. Browser tests do not establish physical iOS/Android behavior or actual inbox delivery. No comprehensive third-party directory availability or independent program-claims audit was performed. Earlier baseline checks also verified `/thank-you` and legacy `/about.html` redirects.
 
-## Remaining checks before production
+## Supplied-asset review and selection
 
-- Verify Netlify Forms detection, submission storage, and the intended notification recipients with one controlled real submission. A successful HTTP response alone does not prove delivery to an inbox.
-- Try the preview on an actual phone, including swipes, keyboard entry, and scrolling. Automated widths do not replace Safari/iOS and physical-device review.
-- The inherited Kendu Energy product URL currently redirects to `https://kenduenergy.com/password`. Confirm the intended public destination or partner store opening status. Its original link is retained.
-- Other inherited community-directory destinations and their claims need an owner currency review; a comprehensive third-party availability audit was not performed.
-- Confirm the existing sponsorship benefits and application age range still match the program. These were preserved, not independently verified.
+All 22 newly supplied files were visually reviewed. The four product files were under `assets/inbox/`; the 18 photographs/graphics were under `assets/` with their original camera filenames. None was deleted.
 
-## Content and imagery decisions
+| Supplied file | Decision |
+| --- | --- |
+| `343B4196-F617-4974-B3D8-66FF6C728673.jpeg` | Unidentified microphone portrait; not assigned to an athlete |
+| `853A65CF-67B8-4C65-B4DF-0FE0B644C3F2.jpeg` | Alternate yellow-shirt skate image; stronger selected version used |
+| `IMG_6057.jpeg` | You Kendu It wall; retained as future brand accent, not forced into page |
+| `IMG_6107.jpeg` | Events: Las Vegas/Sphere photograph |
+| `IMG_6730.jpeg` | Complete wide multi-sport banner |
+| `IMG_8388.jpeg` | Alternate Energy water image; preferred driftwood selected |
+| `IMG_8392.jpeg` | Driftwood alternate without wristband; not selected |
+| `IMG_8394.jpeg` | Energy: driftwood with wristband |
+| `IMG_8397.jpeg` | Backpack/can still-life; beach-walk preferred for About |
+| `IMG_9647.jpeg` | Boat/video frame; not selected |
+| `IMG_9653.jpeg` | Wider beach-walk frame for About |
+| `IMG_9654.jpeg` | Closer duplicate beach-walk frame; not selected |
+| `IMG_9949.jpeg` | Confirmed JD skatepark image |
+| `IMG_9950.jpeg` | Blue-sky skateboard hero |
+| `IMG_9951.jpeg` | Culture surf action; photographer/4SIDEHUSTLE marks retained |
+| `IMG_9952.jpeg` | Lower-resolution JD duplicate; not selected |
+| `IMG_9953.jpeg` | Yellow-shirt ramp hero with banner |
+| `IMG_9954.jpeg` | Dog watching surfer hero |
+| `assets/inbox/product shirt.webp` | Current Shirt |
+| `assets/inbox/product hat.webp` | Current Hat |
+| `assets/inbox/product skateboard.webp` | Current Skateboard deck |
+| `assets/inbox/product onesie.webp` | Current Baby bodysuit |
 
-- No verified athlete name, bio, location, or portrait was in the repository. The page retains honest recruitment copy and an invisible copyable athlete template; no fake roster appears.
-- No confirmed event dates or authored story articles were supplied. Events retain the existing upcoming message and community remains actual directory content.
-- Existing assets are surf-heavy. Three landscape surf images are the strongest current hero choices; moto and longboarding are visible in other sections. Add approved photos across other sports as they become available.
-- Several assets are low resolution, including the 448 × 449 cliff-diving photo, and contain baked-in watermarks. Original high-resolution images without baked-in marks would improve large displays and crop flexibility.
-- Phone hero text is below the image to keep the athlete visible. On larger screens it overlays a modest readability gradient. Mobile image crops prioritize the subject, so baked-in marks at image edges may be clipped.
-- Kendu Energy uses its existing product photo, not an invented product claim. The prior unsupported “clean energy” description was replaced with neutral partner wording.
-- The external merch shop remains linked. No new checkout, Shopify configuration, or product catalog was introduced.
+The existing dirtbike photograph supplies additional sport variety. The hero remains skate/lifestyle led because these are the strongest supplied hero candidates. No higher resolution was invented for the 521 × 728 ramp image or 352px product sources. All major final filenames, dimensions, selectors and replacement guidance are in `WEBSITE-EDITING-GUIDE.md`.
 
-## Review links
+## Remaining owner verification
 
-- Preview: https://deploy-preview-2--kenduunleashed.netlify.app/
-- Pull request: https://github.com/KenduUnleashed/Kendu-Unleashed-Website/pull/2
-- Editing guide: `WEBSITE-EDITING-GUIDE.md`
+- Review the preview on a physical phone, including Safari, swipes, menu, keyboard and scrolling.
+- Verify Netlify detection/storage and notification receipt with one controlled real submission per form.
+- Confirm whether the inherited Energy URL should remain while its store is password-protected, or supply the intended public URL.
+- Photo matching for the other five athletes remains unavailable. Supply exact name-to-file associations before adding their photos; the approved text roster is already published.
 
-Keep the pull request in draft until the owner has reviewed the design and the remaining integration checks are satisfied. Do not merge automatically.
+Preview: https://deploy-preview-2--kenduunleashed.netlify.app/
+
+Draft PR: https://github.com/KenduUnleashed/Kendu-Unleashed-Website/pull/2
