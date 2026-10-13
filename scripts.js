@@ -113,7 +113,8 @@ document.documentElement.classList.add("js");
       !hovering &&
       visible &&
       !document.hidden &&
-      (!hero.contains(document.activeElement) || document.activeElement === pause)
+      (!hero.contains(document.activeElement) ||
+        document.activeElement === pause)
     ) {
       timer = setTimeout(() => show(current + 1), SLIDE_DELAY);
     }
@@ -132,7 +133,8 @@ document.documentElement.classList.add("js");
       status.textContent = `Slide ${current + 1} of ${slides.length}. ${slides[current].querySelector("img").alt}`;
     }
     // Prepare the next photograph before it becomes visible.
-    const nextImage = slides[(current + 1) % slides.length].querySelector("img");
+    const nextImage =
+      slides[(current + 1) % slides.length].querySelector("img");
     if (nextImage) nextImage.loading = "eager";
     schedule();
   }
